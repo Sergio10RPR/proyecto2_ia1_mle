@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning - Regresiones</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <script src="linealReg.js"></script>
+    <script src="polinomialReg.js"></script>
+    <script src="tytus.js"></script>
+</head>
+<body>
+    <h1>Proyecto 2 - Machine Learning</h1>
+    <div class="content-app">
+        <input type="file" id="fileInput" accept=".csv">
+        
+        <p>Seleccionar Método</p>
+        <select id="methodSelect">
+            <option value="linear">Regresión Lineal</option>
+            <option value="polynomial">Regresión Polinomial</option>
+            <option value="tree">Árbol de Decisón</option>
+            <option value="kmeans">KMeans</option>
+        </select>
+        
+        <div id="degreeContainer" style="display: none; margin-top: 0px;">
+            <label for="degreeInput">Grado:</label>
+            <input type="number" id="degreeInput" min="1" value="2">
+        </div>
+        
+        <div>
+            <label for="xColumn">Seleccionar columna X:</label>
+            <select id="xColumn"></select>
+
+            <label for="yColumn">Seleccionar columna Y:</label>
+            <select id="yColumn"></select>
+        </div>
+        
+        
+
+        <p>Valores a predecir (separados por coma)</p>
+        <input id="valoresPredecir" type="text">
+        <button id="executeButton" style="background-color: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">Ejecutar/Ten</button>
+        <button id="entrenarButton" style="background-color: #2196F3; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">Entrenar</button>
+        <button id="predictButton" style="background-color: #FF5722; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">Predecir</button>
+        <button id="patronesButton" style="background-color:  #2196F3; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">Patrones</button>
+        <button id="clearButton" style="background-color: #f44336; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;">Limpiar</button>
+        
+        
+       
+       
+      
+        <div id="kmeansContainer" style="display: none; margin-top: 10px; width: 300px; height: 70px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
+            <p style="margin: 0; margin-right: 10px; display: inline-block;">Ingrese K:</p>
+            <input id="k" type="text" style="margin-right: 20px; width: 50px;">
+            <p style="margin: 0; margin-right: 10px; display: inline-block;">Ingrese el número de iteraciones:</p>
+            <input id="iteraciones" type="text" style="width: 50px;">
+        </div>
+        
+       
+
+          
+
+        <div id="predictionResults" style="display: none; margin-top: 0px;"></div>
+        
+        <canvas id="myChart" style="margin-top: 0px;" width="400" height="150"></canvas>
+
+        <div id="treeContainerGraph" style="display: none; margin-top: 0px;">
+            <h1>Visualización de Árbol de Decisión</h1>
+            <div id="result">Cargando predicción...</div>
+            
+            <style>
+                #tree-container {
+                  width: 800px; 
+                  height: 600px; 
+                  border: 1px solid #ccc; 
+                  margin: 20px; 
+                }
+              </style>
+              
+              <div id="tree-container"></div> 
+        </div>
+        
+
+        <div id="kmeansContainerGraph" style="display: none; margin-top: 10px;">
+            <h1>Visualización de Clustering KMeans</h1>
+            <canvas id="kmeansChart" width="350" height="150"></canvas>
+        </div>
+        
+    </div>
+
+
+    <script src="treeD.js"></script>
+    <script src="kmeans.js"></script>
+    <script src="app.js"></script>
+    
+   
+</body>
+</html>
